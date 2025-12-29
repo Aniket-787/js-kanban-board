@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+:root{
+    /* color  */
+    --bg-color: #0e0d0d;
+    --section-bg-color:#201f1f;
+    --text-color:#ffffff;
+    --bg-btn-color:#e86363;
+    --bg-secondary-color:#1b08eb;
+    --border-color: #6ff161;
+    
+    /* spacing */
+
+    --spacing-sm:4px 6px;
+    --spacing-md:8px 10px;
+    --spacing-lg:14px 16px;
+    --spacing-xl:16px 18px;
+    --spacing-xxl:20px 22px;
+
+    /*radius*/
+
+    --rd-sm:4px;
+    --rd-md:8px;
+    --rd-lg:12px;
+    --rd-xl:16px;
+    --rd-xxl:20px;
+
+    /*font-size*/
+    --font-size-sm:5px;
+    --font-size-md:10px;
+    --font-size-lg:15px;
+    --font-size-xl:20px;
+
+
+
+}
+
+body{
+   background-color: var(--bg-color); 
+   color: var(--text-color);
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xl);
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn button{
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color) ;
+    background-color: transparent;
+    color: var(--text-color);
+    border-radius: var(--rd-md);
+    transition: all ease 0.8s;
+}
+
+.btn button:hover{
+    transform: scale(1.1);
+    background-color: var(--bg-secondary-color);
+    border: none;
+   
+}
+
+.board{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xl);
+    flex-grow: 1;
+    gap: var(--spacing-xl);
+
+}
+
+.task-col{
+    background-color:var(--section-bg-color); 
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--rd-lg);
+    flex-grow: 1;
+    transition: all ease 0.8s;
+}
+
+.task-col:hover{
+    transform: scale(1.01);
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    font-size:var(--font-size-xl) ;
+    padding: var(--spacing-lg);
+}
+
+.task{
+    margin: var(--spacing-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    border: 2px solid rgba(248, 246, 246, 0.623);
+    border-radius: var(--rd-md);
+    cursor:grabbing;
+    transition: all ease 0.8s;
+}
+
+.task:hover{
+   border: 1px solid rgb(149, 223, 149);
+}
