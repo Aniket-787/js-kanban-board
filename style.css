@@ -15,7 +15,7 @@ html,body{
     --bg-color: #0e0d0d;
     --section-bg-color:#201f1f;
     --text-color:#ffffff;
-    --bg-btn-color:#e86363;
+    --bg-btn-color:#d54747;
     --bg-secondary-color:#1b08eb;
     --border-color: #6ff161;
     
@@ -104,9 +104,6 @@ body{
     transition: all ease 0.8s;
 }
 
-.task-col:hover{
-    transform: scale(1.01);
-}
 
 .heading{
     display: flex;
@@ -129,4 +126,20 @@ body{
 
 .task:hover{
    border: 1px solid rgb(149, 223, 149);
+}
+
+.delete{
+    width: 14%;
+    padding: var(--spacing-sm);
+    border: none;
+    border-radius:var(--rd-sm);
+    background-color: var(--bg-btn-color);
+    color: var(--text-color);
+    align-self: flex-end;
+}
+
+
+.hover-over{
+    border: 2px solid var(--border-color);
+    transform: scale(1.02);
 }
