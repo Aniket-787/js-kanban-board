@@ -55,6 +55,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .nav{
@@ -69,7 +70,7 @@ body{
     align-items: center;
 }
 
-.btn button{
+.add-task-btn button{
     padding: var(--spacing-md);
     border: 2px solid var(--border-color) ;
     background-color: transparent;
@@ -78,7 +79,7 @@ body{
     transition: all ease 0.8s;
 }
 
-.btn button:hover{
+.add-task-btn button:hover{
     transform: scale(1.1);
     background-color: var(--bg-secondary-color);
     border: none;
@@ -142,4 +143,65 @@ body{
 .hover-over{
     border: 2px solid var(--border-color);
     transform: scale(1.02);
+}
+
+.modal{
+    position:absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0; 
+    display: none;
+}
+
+.bg{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal .newTask{
+    display: flex;
+    width: 20vw;
+   flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background-color: rgb(57, 57, 59);
+    padding: var(--spacing-xxl);
+    border-radius: var(--rd-md);
+    transition: all ease 1s;
+}
+
+#title, #description{
+    border: none;
+    border-radius: var(--rd-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-color);
+}
+
+#addtask{
+    width: fit-content;
+    color: var(--text-color);
+    padding: var(--spacing-sm);
+    border-radius: var(--rd-md);
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+}
+
+#addtask:hover{
+    transform: scale(1.03);
+}
+
+span{
+    color: red;
+}
+
+
+
+.taskhead{
+    display: flex;
+    justify-content: space-between;
 }
