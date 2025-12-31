@@ -11,15 +11,12 @@ html,body{
 }
 
 :root{
-    /* color  */
     --bg-color: #0e0d0d;
     --section-bg-color:#201f1f;
     --text-color:#ffffff;
     --bg-btn-color:#d54747;
     --bg-secondary-color:#1b08eb;
     --border-color: #6ff161;
-    
-    /* spacing */
 
     --spacing-sm:4px 6px;
     --spacing-md:8px 10px;
@@ -27,28 +24,22 @@ html,body{
     --spacing-xl:16px 18px;
     --spacing-xxl:20px 22px;
 
-    /*radius*/
-
     --rd-sm:4px;
     --rd-md:8px;
     --rd-lg:12px;
     --rd-xl:16px;
-    --rd-xxl:20px;
 
-    /*font-size*/
-    --font-size-sm:5px;
-    --font-size-md:10px;
-    --font-size-lg:15px;
-    --font-size-xl:20px;
-
-
-
+    --font-size-md:14px;
+    --font-size-lg:16px;
+    --font-size-xl:18px;
 }
 
 body{
    background-color: var(--bg-color); 
    color: var(--text-color);
 }
+
+/* ===== LAYOUT ===== */
 
 .main{
     width: 100%;
@@ -61,147 +52,177 @@ body{
 .nav{
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-xl);
-}
-
-.btn{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    padding: var(--spacing-xl);
 }
 
 .add-task-btn button{
     padding: var(--spacing-md);
-    border: 2px solid var(--border-color) ;
+    border: 2px solid var(--border-color);
     background-color: transparent;
     color: var(--text-color);
     border-radius: var(--rd-md);
-    transition: all ease 0.8s;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .add-task-btn button:hover{
-    transform: scale(1.1);
     background-color: var(--bg-secondary-color);
-    border: none;
-   
 }
 
-.board{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: var(--spacing-xl);
-    flex-grow: 1;
-    gap: var(--spacing-xl);
+/* ===== BOARD ===== */
 
+.board{
+    flex-grow: 1;
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    overflow-x: auto;
 }
 
 .task-col{
-    background-color:var(--section-bg-color); 
+    background-color: var(--section-bg-color);
+    border-radius: var(--rd-lg);
+    flex: 1;
+    min-width: 280px;
     display: flex;
     flex-direction: column;
-    border-radius: var(--rd-lg);
-    flex-grow: 1;
-    transition: all ease 0.8s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
-
 
 .heading{
     display: flex;
     justify-content: space-between;
-    font-size:var(--font-size-xl) ;
-    padding: var(--spacing-lg);
+    padding: 14px;
+    font-size: var(--font-size-xl);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.count{
+    opacity: 0.7;
+}
+
+/* ===== TASK ===== */
+
 .task{
-    margin: var(--spacing-lg);
-    padding: var(--spacing-md);
+    margin: 12px;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border-radius: var(--rd-md);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    border: 2px solid rgba(248, 246, 246, 0.623);
-    border-radius: var(--rd-md);
-    cursor:grabbing;
-    transition: all ease 0.8s;
+    gap: 10px;
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .task:hover{
-   border: 1px solid rgb(149, 223, 149);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
 }
 
 .delete{
-    width: 14%;
-    padding: var(--spacing-sm);
-    border: none;
-    border-radius:var(--rd-sm);
-    background-color: var(--bg-btn-color);
-    color: var(--text-color);
     align-self: flex-end;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: var(--rd-sm);
+    border: none;
+    background-color: var(--bg-btn-color);
+    color: white;
+    cursor: pointer;
 }
 
+.delete:hover{
+    background-color: #ff5c5c;
+}
 
 .hover-over{
-    border: 2px solid var(--border-color);
-    transform: scale(1.02);
+    border: 2px dashed var(--border-color);
+    background-color: rgba(111,241,97,0.05);
 }
 
+/* ===== MODAL ===== */
+
 .modal{
-    position:absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0; 
+    position: fixed;
+    inset: 0;
     display: none;
+    z-index: 1000;
 }
 
 .bg{
-    height: 100vh;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(4px);
 }
 
-.modal .newTask{
+.newTask{
+    width: 320px;
+    background-color: #2d2d30;
+    padding: 20px;
+    border-radius: var(--rd-lg);
     display: flex;
-    width: 20vw;
-   flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-lg);
-    background-color: rgb(57, 57, 59);
-    padding: var(--spacing-xxl);
-    border-radius: var(--rd-md);
-    transition: all ease 1s;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-#title, #description{
-    border: none;
-    border-radius: var(--rd-md);
-    padding: var(--spacing-md);
+#title,
+#description{
     background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: var(--rd-md);
+}
+
+#title:focus,
+#description:focus{
+    outline: none;
+    border-color: var(--border-color);
 }
 
 #addtask{
-    width: fit-content;
-    color: var(--text-color);
-    padding: var(--spacing-sm);
+    align-self: flex-end;
+    padding: 8px 12px;
     border-radius: var(--rd-md);
-    border: 1px solid var(--border-color);
     background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
 }
 
 #addtask:hover{
-    transform: scale(1.03);
+    background-color: var(--bg-secondary-color);
 }
 
-span{
-    color: red;
-}
+/* ===== MOBILE RESPONSIVE ===== */
 
+@media (max-width: 768px){
+    .nav{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 
+    .board{
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 
-.taskhead{
-    display: flex;
-    justify-content: space-between;
+    .task-col{
+        min-width: 100%;
+    }
+
+    .heading{
+        font-size: 16px;
+    }
+
+    .newTask{
+        width: 90%;
+    }
 }
